@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/custom_dialog_update"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/dialogThemNhanVien_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/overpass_bold"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Thêm Nhân Viên"
+        android:textColor="#FF0000"
+        android:textSize="23dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Họ Tên (*)"
+        android:textSize="14sp"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:hintTextColor="@color/purple_700"
+        app:startIconDrawable="@drawable/name_30"
+        app:startIconTint="@null">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/dialogThemNhanVien_ed_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/overpass_bold"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Số Điện Thoại (*)"
+        android:textSize="14sp"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:hintTextColor="@color/purple_700"
+        app:startIconDrawable="@drawable/call_30"
+        app:startIconTint="@null">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/dialogThemNhanVien_ed_sdt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/overpass_bold"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CMND/CCCD (*)"
+        android:textSize="14sp"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="12"
+        app:hintTextColor="@color/purple_700"
+        app:startIconDrawable="@drawable/identification_30"
+        app:startIconTint="@null">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/dialogThemNhanVien_ed_cccd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/overpass_bold"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Mật Khẩu (*)"
+        android:textSize="14sp"
+        android:id="@+id/dialogAddNhanVien_inputLayout_pass"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:hintTextColor="@color/purple_700"
+        app:startIconDrawable="@drawable/lock_30"
+        app:startIconTint="#03A9F4">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/dialogThemNhanVien_ed_pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/overpass_bold"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:hint="Địa Chỉ (*)"
+            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:hintTextColor="@color/purple_700"
+            app:startIconDrawable="@drawable/address_30"
+            app:startIconTint="@null">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/dialogThemNhanVien_ed_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/overpass_bold"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/overpass_bold"
+                android:text="Giới Tính"
+                android:textColor="@color/purple_700"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cusstom_item_nhanvoen"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/dialogThemNhanVien_rdo_male"
+                    android:checked="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/overpass_bold"
+                    android:text="Nam" />
+
+                <RadioButton
+                    android:id="@+id/dialogThemNhanVien_rdo_feMale"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/overpass_bold"
+                    android:text="Nữ" />
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogThemNhanVien_linear_status"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trạng thái"
+            android:textSize="19sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/overpass_bold"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:textSize="15sp"
+                android:fontFamily="@font/overpass"
+                android:checked="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Hoạt động"
+                android:id="@+id/dialogThemNhanVien_rdo_active"
+                />
+            <RadioButton
+                android:textSize="15sp"
+                android:fontFamily="@font/overpass"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Chuyển ca"
+                android:id="@+id/dialogThemNhanVien_rdo_transferShift"
+                />
+            <RadioButton
+                android:textSize="15sp"
+                android:fontFamily="@font/overpass"
+                android:layout_gravity="right"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Nghỉ việc"
+                android:id="@+id/dialogThemNhanVien_rdo_inActive"
+                />
+        </RadioGroup>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialogThemNhanVien_btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:drawableLeft="@drawable/ic_baseline_save_24"
+            android:fontFamily="@font/overpass_bold"
+            android:padding="10dp"
+            android:text="Thêm"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/dialogThemNhanVien_btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/coNguoi"
+            android:drawableLeft="@drawable/ic_baseline_cancel_24"
+            android:fontFamily="@font/overpass_bold"
+            android:padding="10dp"
+            android:text="Hủy"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

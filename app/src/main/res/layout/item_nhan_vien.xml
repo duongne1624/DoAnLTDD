@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:weightSum="10"
+    android:background="@drawable/cusstom_item_nhanvoen"
+    android:orientation="horizontal">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:id="@+id/itemNhanVien_img_avatar"
+        android:background="@drawable/background_avatar_nhanviennghiviec"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:src="@drawable/businessman_100"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:padding="4dp"
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatTextView
+            app:fontFamily="@font/overpass_bold"
+            android:layout_marginTop="7dp"
+            android:id="@+id/itemNhanVien_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_bold"
+            android:text="Họ Tên : Nguyễn Dương"
+            app:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="#100423"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            app:fontFamily="@font/overpass_bold"
+            android:layout_marginTop="7dp"
+            android:id="@+id/itemNhanVien_tv_sdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_bold"
+            android:text="Số Điện Thoại :  0987654321"
+            app:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="#100423"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            app:fontFamily="@font/overpass_bold"
+            android:layout_marginTop="7dp"
+            android:id="@+id/itemNhanVien_tv_cccd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_bold"
+            android:text="CMND/CCCD :  000000000000"
+            app:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="#100423"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            app:fontFamily="@font/overpass_bold"
+            android:layout_marginTop="7dp"
+            android:id="@+id/itemNhanVien_tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_bold"
+            android:text="Địa chỉ : 828 Sư Vạn Hạnh"
+            app:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="#100423"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            app:fontFamily="@font/overpass_bold"
+            android:layout_marginTop="7dp"
+            android:id="@+id/itemNhanVien_tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_bold"
+            android:text="Giới tính :  Nam"
+            app:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="#100423"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            app:fontFamily="@font/overpass_bold"
+            android:layout_marginTop="7dp"
+            android:id="@+id/itemNhanVien_tv_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_bold"
+            android:text="Mật khẩu : 123"
+            app:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="#100423"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</LinearLayout>

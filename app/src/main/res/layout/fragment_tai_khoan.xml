@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/bach"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/actiThongTin_img_avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/businessman_100" />
+
+        <LinearLayout
+            android:id="@+id/fragTaiKhoan_linear_infoUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome To Admin"
+                android:id="@+id/fragTaiKhoan_tv_welcomeUser"
+                android:fontFamily="@font/overpass_semibold"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="22dp" />
+
+            <TextView
+                android:fontFamily="@font/overpass_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
+                android:text="Have a good day"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nava"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:menu="@menu/menu_user_admin">
+    </com.google.android.material.navigation.NavigationView>
+
+
+</LinearLayout>

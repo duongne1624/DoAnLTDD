@@ -9,6 +9,10 @@
         android:icon="@drawable/customer_25"
         android:title="Khách Hàng" />
     <item
+        android:id="@+id/menu_bottom3"
+        android:icon="@drawable/services_24"
+        android:title="Dịch Vụ" />
+    <item
         android:id="@+id/menu_bottom4"
         android:icon="@drawable/order_25"
         android:title="Hóa Đơn" />

@@ -128,9 +128,13 @@ public class SoDoPhongFragment extends Fragment implements ItemRoomAdapter.IClic
                         bundle.putLong(KEY_CHECKIN,d_checkIn.getTime());
                         bundle.putLong(KEY_CHECKOUT,d_checkOut.getTime());
                         bundle.putInt(KEY_AMOUNT_DATE,(int)(d_checkOut.getTime() - d_checkIn.getTime())/(3600000*24) + 1);
+
+                        //status check time đặt phong
+                        //status = 0: đặt trong thời gian 14h -> 24h
+                        //status = 2: đặt phòng trước -> phải thanh toán khi đặt phòng
                         int status1 = 0;
                         if(System.currentTimeMillis() < (d_checkIn.getTime()))
-                            status1 = 2;
+                            status1 = 0;
                         bundle.putInt(KEY_STATUS, status1);
                         intent.putExtra(KEY_BUNDLE,bundle);
                         startActivity(intent);

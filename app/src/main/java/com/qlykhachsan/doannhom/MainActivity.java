@@ -106,6 +106,16 @@ public class MainActivity extends AppCompatActivity {
             dao.insertOfServiceCategory(new ServiceCategory(3, 9));
             dao.insertOfServiceCategory(new ServiceCategory(3, 10));
             dao.insertOfServiceCategory(new ServiceCategory(3, 11));
+
+            //Dịch vụ
+            dao.insertOfService(new Services("Giặt đồ", 30));
+            dao.insertOfService(new Services("Buffet sáng", 150));
+            dao.insertOfService(new Services("Nước khoáng", 10));
+            dao.insertOfService(new Services("Nước ngọt", 20));
+            dao.insertOfService(new Services("Mỳ ăn liền", 10));
+            dao.insertOfService(new Services("Cơm gà", 40));
+            dao.insertOfService(new Services("Thuê xe (Xe máy)", 120));
+            dao.insertOfService(new Services("Thuê xe (Xe oto)", 300));
         }
     }
 
@@ -132,6 +142,13 @@ public class MainActivity extends AppCompatActivity {
                 title = "Khách Hàng";
                 logo = R.drawable.customer_25;
                 fragment = new KhachHangFragment();
+                loadFragment(fragment);
+                return true;
+            }
+            else if(id == R.id.menu_bottom3) {
+                title = "Khách Hàng";
+                logo = R.drawable.services_24;
+                fragment = new DichVuFragment();
                 loadFragment(fragment);
                 return true;
             }

@@ -48,16 +48,17 @@ public class ItemRoomAdapter extends RecyclerView.Adapter<ItemRoomAdapter.RoomsV
             return;
         }
         holder.tv_room_name.setText("" + rooms.getId());
-        holder.tv_room_catogory.setText(listCategory.get(position));
+        holder.tv_room_category.setText(listCategory.get(position));
         if (rooms.getStatus() == 0)
             holder.cardView.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.phongTrong));
         else if (rooms.getStatus() == 1)
             holder.cardView.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.coNguoi));
+        else if (rooms.getStatus() == 2)
+            holder.cardView.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.dangsuachua));
         else
             holder.cardView.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.datTruoc));
 
         holder.cardView.setOnClickListener(v -> iClickItemRooms.datPhong(rooms));
-
 
     }
     @Override
@@ -70,14 +71,14 @@ public class ItemRoomAdapter extends RecyclerView.Adapter<ItemRoomAdapter.RoomsV
 
     public class RoomsViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tv_room_name,tv_room_catogory;
+        private TextView tv_room_name,tv_room_category;
         CardView cardView;
 
         public RoomsViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_room_name = itemView.findViewById(R.id.itemRooms_tv_name);
             cardView = itemView.findViewById(R.id.card_rooms);
-            tv_room_catogory = itemView.findViewById(R.id.itemRooms_tv_category);
+            tv_room_category = itemView.findViewById(R.id.itemRooms_tv_category);
         }
     }
 }

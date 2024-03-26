@@ -1,6 +1,7 @@
 package com.qlykhachsan.doannhom.DTO;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;

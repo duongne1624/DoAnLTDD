@@ -52,14 +52,12 @@ public class QuenMatKhauActivity extends AppCompatActivity {
         People obj = dao.getObjOfUser(sdt);
         if(obj != null){
             if(obj.getStatus() != 5)
-                pass = obj.getPassowrd();
+                pass = obj.getPassword();
             else
                 check = false;
         }
 
 
-
-        //hide loađ
         new Handler().postDelayed(() -> {
             ed_sdt.setFocusableInTouchMode(true);
             img_close.setEnabled(true);

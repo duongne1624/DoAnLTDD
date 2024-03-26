@@ -2,6 +2,7 @@ package com.qlykhachsan.doannhom.DTO;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -28,7 +29,6 @@ public class Rooms {
     public int getStatus() {
         return status;
     }
-
     public void setStatus(int status) {
         this.status = status;
     }

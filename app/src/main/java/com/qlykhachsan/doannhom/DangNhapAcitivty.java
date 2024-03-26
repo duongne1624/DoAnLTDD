@@ -45,8 +45,8 @@ public class DangNhapAcitivty extends AppCompatActivity {
 
     private void addData() {
         if(!share.getCheck1()){
-            People people = new People("admin full name", "0123456789", "001726676330", "hn", 1, 2);
-            people.setPassowrd("123");
+            People people = new People("Admin", "0123456789", "001726676330", "ha noi", 1, 2);
+            people.setPassword("123");
             dao.insertOfUser(people);
             share.setCheck1(true);
         }
@@ -65,7 +65,7 @@ public class DangNhapAcitivty extends AppCompatActivity {
         }
 
         People people = dao.checkLogin(phoneNumber);
-        if (people != null && password.equals(people.getPassowrd())) {
+        if (people != null && password.equals(people.getPassword())) {
             if(people.getStatus() == 4){
                 CustomToast.makeText(DangNhapAcitivty.this, "Tài khoản tạm thời ngừng hoạt động !", false).show();
                 return;

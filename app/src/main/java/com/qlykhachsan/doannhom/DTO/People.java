@@ -1,6 +1,7 @@
 package com.qlykhachsan.doannhom.DTO;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.io.Serializable;
 public class People implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String fullName, SDT, CCCD, address, passowrd;
+    private String fullName, SDT, CCCD, address, password;
     private int sex, status;
 
     public People(String fullName, String SDT, String CCCD, String address, int sex, int status) {
@@ -65,12 +66,12 @@ public class People implements Serializable {
         this.address = address;
     }
 
-    public String getPassowrd() {
-        return passowrd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassowrd(String passowrd) {
-        this.passowrd = passowrd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getSex() {
@@ -96,7 +97,7 @@ public class People implements Serializable {
                 ", SDT='" + SDT + '\'' +
                 ", CCCD='" + CCCD + '\'' +
                 ", address='" + address + '\'' +
-                ", passowrd='" + passowrd + '\'' +
+                ", passowrd='" + password + '\'' +
                 ", sex=" + sex +
                 ", status=" + status;
     }

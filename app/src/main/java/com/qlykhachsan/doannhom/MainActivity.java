@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.qlykhachsan.doannhom.DTO.Categories;
+import com.qlykhachsan.doannhom.DTO.Orders;
+import com.qlykhachsan.doannhom.DTO.People;
 import com.qlykhachsan.doannhom.DTO.Rooms;
 import com.qlykhachsan.doannhom.DTO.ServiceCategory;
 import com.qlykhachsan.doannhom.DTO.Services;
@@ -18,7 +20,14 @@ import com.qlykhachsan.doannhom.Fragment.DichVuFragment;
 import com.qlykhachsan.doannhom.Fragment.HoaDonFragment;
 import com.qlykhachsan.doannhom.Fragment.KhachHangFragment;
 import com.qlykhachsan.doannhom.Fragment.PhongFragment;
+import com.qlykhachsan.doannhom.Fragment.SoDoPhongFragment;
 import com.qlykhachsan.doannhom.Fragment.TaiKhoanFragment;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -26,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv_titleTb;
     private KhachSanSharedPreferences share;
     private BottomNavigationView bottomNavigationView;
+
+    private SimpleDateFormat sdf;
+    private Calendar calendar;
+    private long time = 0;
+    private Date checkIn, checkOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +130,18 @@ public class MainActivity extends AppCompatActivity {
             dao.insertOfService(new Services("Cơm gà", 40));
             dao.insertOfService(new Services("Thuê xe (Xe máy)", 120));
             dao.insertOfService(new Services("Thuê xe (Xe oto)", 300));
+
+
+            //OrderSuaChua
+            try {
+                time = sdf.parse(sdf.format(new Date(System.currentTimeMillis()))).getTime();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            calendar.setTimeInMillis(time);
+            checkOut.setTime(time + 3600000 * 36 * 99);
+            checkIn.setTime(time);
+            dao.insertOfOrders(new Orders(1, 1, checkIn, checkOut));
         }
     }
 

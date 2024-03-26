@@ -4,6 +4,7 @@ package com.qlykhachsan.doannhom;
 import android.content.Context;
 
 import androidx.room.Database;
+import androidx.room.Ignore;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
@@ -21,7 +22,7 @@ import com.qlykhachsan.doannhom.DTO.Services;
 @Database(entities = {Categories.class, OrderDetail.class, Orders.class,
         People.class, Services.class, ServiceCategory.class, Rooms.class, ServiceOrder.class}, version = 1)
 public abstract class KhachSanDB extends RoomDatabase {
-    private static final String KHACHSAN_NAME = "khachsanmtcl";
+    private static final String KHACHSAN_NAME = "khachsan";
     private static KhachSanDB instance;
 
     public static KhachSanDB getInstance(Context context) {
@@ -31,5 +32,4 @@ public abstract class KhachSanDB extends RoomDatabase {
     }
 
     public abstract KhachSanDAO getDAO();
-
 }

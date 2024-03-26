@@ -107,7 +107,7 @@ public class QuanLyActivity extends AppCompatActivity implements ItemNhanVienAda
                 if (rdo_feMale.isChecked())
                     sex = 0;
                 People people = new People(name,sdt,cccd,address,sex,1);
-                people.setPassowrd(pass);
+                people.setPassword(pass);
                 dao.insertOfUser(people);
                 list.add(people);
                 CustomToast.makeText(QuanLyActivity.this, "Thêm Thành Công", true).show();
@@ -186,7 +186,7 @@ public class QuanLyActivity extends AppCompatActivity implements ItemNhanVienAda
         ed_name.setText(people.getFullName());
         ed_sdt.setText(people.getSDT());
         ed_cccd.setText(people.getCCCD());
-        ed_pass.setText(people.getPassowrd());
+        ed_pass.setText(people.getPassword());
         ed_address.setText(people.getAddress());
         if(status == 4)
             rdo_transferShift.setChecked(true);
@@ -233,7 +233,7 @@ public class QuanLyActivity extends AppCompatActivity implements ItemNhanVienAda
             people.setSDT(sdt);
             people.setCCCD(cccd);
             people.setAddress(address);
-            people.setPassowrd(pass);
+            people.setPassword(pass);
             int sex = 1;
             if (rdo_feMale.isChecked())
                 sex = 0;

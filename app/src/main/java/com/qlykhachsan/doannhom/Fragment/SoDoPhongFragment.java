@@ -23,9 +23,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.qlykhachsan.doannhom.Adapter.ItemRoomAdapter;
 import com.qlykhachsan.doannhom.ChucNangDatPhongActivity;
+import com.qlykhachsan.doannhom.ChucNangSuaChuaActivity;
+import com.qlykhachsan.doannhom.CustomToast;
+import com.qlykhachsan.doannhom.DTO.Orders;
 import com.qlykhachsan.doannhom.DTO.Rooms;
+import com.qlykhachsan.doannhom.DTO.People;
+import com.qlykhachsan.doannhom.DTO.OrderDetail;
+import com.qlykhachsan.doannhom.DangNhapAcitivty;
 import com.qlykhachsan.doannhom.KhachSanDAO;
 import com.qlykhachsan.doannhom.KhachSanDB;
+import com.qlykhachsan.doannhom.KhachSanSharedPreferences;
+import com.qlykhachsan.doannhom.MainActivity;
 import com.qlykhachsan.doannhom.R;
 
 import java.text.ParseException;
@@ -47,12 +55,15 @@ public class SoDoPhongFragment extends Fragment implements ItemRoomAdapter.IClic
     private int currentCategory = 2;
     private boolean checkShowFilterCategory = false;
     private Animation animation,animationRotate;
+    private KhachSanSharedPreferences share;
     private long time = 0;
     private TextView tv_checkIn,tv_checkOut,tv_singleRoom,tv_doubleRoom,tv_vipRoom;
     public static final String KEY_BUNDLE = "KEY_BUNDLE",KEY_ROOM ="KEY_ROOM",
             KEY_CHECKIN = "KEY_CHECKIN",KEY_CHECKOUT ="KEY_CHECKOUT",
             KEY_STATUS = "KEY_STATUS",KEY_AMOUNT_DATE = "KEY_AMOUNT_DATE";
     private KhachSanDAO dao;
+
+    private People people;
 
     public static SoDoPhongFragment newInstance() {
         return new SoDoPhongFragment();
@@ -74,6 +85,7 @@ public class SoDoPhongFragment extends Fragment implements ItemRoomAdapter.IClic
         super.onViewCreated(view, savedInstanceState);
         animationRotate = AnimationUtils.loadAnimation(requireContext(),R.anim.scale_filter_room);
         calendar = Calendar.getInstance();
+        share = new KhachSanSharedPreferences(requireContext());
         d_checkOut = new Date();
         d_checkIn = new Date();
         sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -117,35 +129,53 @@ public class SoDoPhongFragment extends Fragment implements ItemRoomAdapter.IClic
     @Override
     public void datPhong(Rooms rooms) {
         int status = rooms.getStatus();
-        if(status == 0){
+        if (status == 0) {
             new AlertDialog.Builder(getContext())
                     .setTitle("Xác nhận đặt phòng")
                     .setMessage("Bạn có muốn đặt phòng không?")
                     .setPositiveButton("Có", (dialog, which) -> {
                         Intent intent = new Intent(requireContext(), ChucNangDatPhongActivity.class);
                         Bundle bundle = new Bundle();
-                        bundle.putString(KEY_ROOM,rooms.getId());
-                        bundle.putLong(KEY_CHECKIN,d_checkIn.getTime());
-                        bundle.putLong(KEY_CHECKOUT,d_checkOut.getTime());
-                        bundle.putInt(KEY_AMOUNT_DATE,(int)(d_checkOut.getTime() - d_checkIn.getTime())/(3600000*24) + 1);
+                        bundle.putString(KEY_ROOM, rooms.getId());
+                        bundle.putLong(KEY_CHECKIN, d_checkIn.getTime());
+                        bundle.putLong(KEY_CHECKOUT, d_checkOut.getTime());
+                        bundle.putInt(KEY_AMOUNT_DATE, (int) (d_checkOut.getTime() - d_checkIn.getTime()) / (3600000 * 24) + 1);
 
                         //status check time đặt phong
                         //status = 0: đặt trong thời gian 14h -> 24h
                         //status = 2: đặt phòng trước -> phải thanh toán khi đặt phòng
                         int status1 = 0;
-                        if(System.currentTimeMillis() < (d_checkIn.getTime()))
+                        if (System.currentTimeMillis() < (d_checkIn.getTime()))
                             status1 = 0;
                         bundle.putInt(KEY_STATUS, status1);
-                        intent.putExtra(KEY_BUNDLE,bundle);
+                        intent.putExtra(KEY_BUNDLE, bundle);
                         startActivity(intent);
                     })
-                    .setNegativeButton("Huỷ",null)
+                    .setNegativeButton("Huỷ", null)
+                    .show();
+        }
+        else if (status == 1) {
+            OrderDetail obj = null;
+            List<OrderDetail> odList = dao.getAllOfOrderDetail();
+            for (OrderDetail obj1 : odList) {
+                if (rooms.getId().equals(obj1.getRoomID())) {
+                    obj = obj1;
+                }
+            }
+            Orders od = dao.getObjOfOrders(obj.getOrderID());
+            int id = od.getCustomID();
+            String name = dao.getNameOfCustom(id);
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Thông tin phòng")
+                    .setMessage("Phòng hiện đã đặt bởi " + name.toUpperCase())
+                    .setNegativeButton("OK", null)
                     .show();
         }
     }
     private void beginLoad(){
         rcvRooms.setVisibility(View.GONE);
         pb_load.setVisibility(View.VISIBLE);
+        reLoad();
     }
     private void endLoad(){
         new Handler().postDelayed(() -> {
@@ -177,7 +207,6 @@ public class SoDoPhongFragment extends Fragment implements ItemRoomAdapter.IClic
         updateColorFilterCategory();
         endLoad();
     }
-
     private String formatDate(int date){
         if(date < 10)
             return "0" + date;
@@ -286,5 +315,9 @@ public class SoDoPhongFragment extends Fragment implements ItemRoomAdapter.IClic
         tv_singleRoom.startAnimation(animation);
         tv_doubleRoom.startAnimation(animation);
         tv_vipRoom.startAnimation(animation);
+    }
+
+    private void reLoad() {
+        people = dao.checkLogin(share.getSDT2());
     }
 }

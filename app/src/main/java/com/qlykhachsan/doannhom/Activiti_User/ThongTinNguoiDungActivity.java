@@ -76,7 +76,7 @@ public class ThongTinNguoiDungActivity extends AppCompatActivity {
         int index = name.lastIndexOf(" ") + 1;
         if(index > 1)
             name = name.substring(index);
-        tv_welcome.setText("Welcome to " + name);
+        tv_welcome.setText("Welcome " + name);
         if(people.getStatus() != 2)
             img_edit.setVisibility(View.GONE);
     }

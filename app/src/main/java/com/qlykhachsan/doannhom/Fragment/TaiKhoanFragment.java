@@ -114,11 +114,11 @@ public class TaiKhoanFragment extends Fragment {
                         CustomToast.makeText(getContext(), "Mật khẩu mới không khớp. Mời nhập lại", false).show();
                         return;
                     }
-                    if (!people.getPassowrd().equals(oldpassword)) {
+                    if (!people.getPassword().equals(oldpassword)) {
                         CustomToast.makeText(getContext(), "Mật khẩu sai !", false).show();
                         return;
                     }
-                    people.setPassowrd(newPassword);
+                    people.setPassword(newPassword);
                     dao.UpdateUser(people);
                     CustomToast.makeText(getContext(), "Đổi mật khẩu thành công", true).show();
                     dialog1.dismiss();
@@ -160,7 +160,7 @@ public class TaiKhoanFragment extends Fragment {
         int index = name.lastIndexOf(" ") + 1;
         if(index > 1)
             name = name.substring(index);
-        tv_welcomeUser.setText("Welcome to " + name);
+        tv_welcomeUser.setText("Welcome " + name);
         if(people.getSex() == 0)
             img_avatar.setBackgroundResource(R.drawable.businesswoman_100);
     }

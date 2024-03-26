@@ -52,7 +52,7 @@ public class ItemNhanVienAdapter extends RecyclerView.Adapter<ItemNhanVienAdapte
             holder.tv_pass.setVisibility(View.GONE);
         }
         else{
-            holder.tv_pass.setText("Mật Khẩu :  " + people.getPassowrd());
+            holder.tv_pass.setText("Mật Khẩu :  " + people.getPassword());
             if(status == 4)
                 holder.img_avatar.setBackgroundResource(R.drawable.background_avatar_nhanvienchuyenca);
             else if(status == 5)

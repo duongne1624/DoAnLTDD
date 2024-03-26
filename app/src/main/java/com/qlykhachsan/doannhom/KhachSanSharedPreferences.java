@@ -21,7 +21,7 @@ public class KhachSanSharedPreferences {
         editor.putString(KEY_NAME,obj.getFullName());
         if(check){
             editor.putString(KEY_SDT,obj.getSDT());
-            editor.putString(KEY_MK,obj.getPassowrd());
+            editor.putString(KEY_MK,obj.getPassword());
         }else if(obj.getSDT().equals(share.getString(KEY_SDT,null)))
             editor.remove(KEY_SDT);
         editor.apply();

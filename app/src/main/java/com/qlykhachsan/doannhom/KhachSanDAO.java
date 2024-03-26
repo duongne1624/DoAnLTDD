@@ -25,6 +25,9 @@ public abstract class KhachSanDAO {
     @Query("SELECT * FROM categories")
     public abstract List<Categories> getAllOfLoaiPhong();
 
+    @Query("SELECT fullname FROM People where id = :CustomID")
+    public abstract String getNameOfCustom(int CustomID);
+
     @Insert
     public abstract void insertOfLoaiPhong(Categories obj);
 
@@ -45,6 +48,9 @@ public abstract class KhachSanDAO {
         }
         return list;
     }
+
+    @Query("SELECT * FROM orderdetail")
+    public abstract List<OrderDetail> getAllOfOrderDetail();
 
     public List<Services> getListWithRoomIdOfServices(String id) {
         List<Services> list = new ArrayList<>();
@@ -115,6 +121,12 @@ public abstract class KhachSanDAO {
     @Query("SELECT * FROM rooms WHERE id in (SELECT roomID FROM orderdetail WHERE orderID = :id)")
     public abstract List<Rooms> getListWithOrderIdOfRooms(int id);
 
+    @Query("UPDATE Rooms SET status = :newStatus WHERE id = :idRoom")
+    public abstract void changeStatusOfRoom(String idRoom, int newStatus);
+
+    @Update
+    public abstract void UpdateRooms(Rooms rooms);
+
     //Orders
     @Insert
     public abstract void insertOfOrders(Orders obj);
@@ -177,9 +189,6 @@ public abstract class KhachSanDAO {
 
     @Update
     public abstract void updateOfOrderDetail(OrderDetail obj);
-
-    @Query("SELECT * FROM orderdetail")
-    public abstract List<OrderDetail> getAllOfOrderDetail();
 
     @Query("SELECT * FROM orderdetail WHERE orderID = :id")
     public abstract List<OrderDetail> getListWithOrderIdOfOrderDetail(int id);

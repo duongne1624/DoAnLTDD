@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome To Admin"
+                android:text="Welcome Admin"
                 android:id="@+id/fragTaiKhoan_tv_welcomeUser"
                 android:fontFamily="@font/overpass_semibold"
                 android:textStyle="bold"

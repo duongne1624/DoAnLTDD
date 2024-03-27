@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/custom_dialog_update"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/dialogThemNhanVien_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/overpass_bold"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Thêm Dich Vụ"
+        android:textColor="#FF0000"
+        android:textSize="23dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên Dịch Vụ (*)"
+        android:textSize="14sp"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:hintTextColor="@color/purple_700"
+        app:startIconDrawable="@drawable/services_24"
+        app:startIconTint="@null">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/dialogThemDichVu_Name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/overpass_bold"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Đơn giá (*)"
+        android:textSize="14sp"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:hintTextColor="@color/purple_700"
+        app:startIconDrawable="@drawable/reserve_27"
+        app:startIconTint="@null">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/dialogThemDichVu_DonGia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/overpass_bold"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialogThemDichVu_btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:drawableLeft="@drawable/ic_baseline_save_24"
+            android:fontFamily="@font/overpass_bold"
+            android:padding="10dp"
+            android:text="Thêm"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/dialogThemDichVu_btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/coNguoi"
+            android:drawableLeft="@drawable/ic_baseline_cancel_24"
+            android:fontFamily="@font/overpass_bold"
+            android:padding="10dp"
+            android:text="Hủy"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

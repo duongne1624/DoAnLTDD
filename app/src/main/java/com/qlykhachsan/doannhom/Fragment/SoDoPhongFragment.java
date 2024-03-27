@@ -167,7 +167,9 @@ public class SoDoPhongFragment extends Fragment implements ItemRoomAdapter.IClic
             String name = dao.getNameOfCustom(id);
             new AlertDialog.Builder(getContext())
                     .setTitle("Thông tin phòng")
-                    .setMessage("Phòng hiện đã đặt bởi " + name.toUpperCase())
+                    .setMessage("Phòng hiện đã đặt bởi " + name + " từ "
+                            + sdf.format(obj.getCheckIn()) + "h" + " đến "
+                            + sdf.format(obj.getCheckOut()) + "h")
                     .setNegativeButton("OK", null)
                     .show();
         }

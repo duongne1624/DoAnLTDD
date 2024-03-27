@@ -13,6 +13,9 @@
         android:theme="@style/Theme.UngDungQuanLyKhachSanMCTL"
         tools:targetApi="31">
         <activity
+            android:name=".ThemDichVuActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChucNangSuaChuaActivity"
             android:exported="false" />
         <activity

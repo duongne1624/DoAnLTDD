@@ -56,7 +56,6 @@ public class DichVuFragment extends Fragment {
     private boolean check;
     private KhachSanDAO dao;
     private People people;
-    private NavigationView navigationView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,19 +86,20 @@ public class DichVuFragment extends Fragment {
         recyclerView.setAdapter(itemDichVuAdapter);
 
         if(people.getStatus() != 2) {
-            navigationView.getMenu().findItem(R.id.frmDichVu_AddService).setVisible(false);
+            view.findViewById(R.id.frmDichVu_AddService).setVisibility(View.GONE);
+            btnAddService.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(requireContext(), ThemDichVuActivity.class);
+                    startActivity(i);
+                    list = KhachSanDB.getInstance(getContext()).getDAO().getAllService();
+                    itemDichVuAdapter.setData(list);
+                    recyclerView.setAdapter(itemDichVuAdapter);
+                }
+            });
         }
 
-        btnAddService.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(requireContext(), ThemDichVuActivity.class);
-                startActivity(i);
-                list = KhachSanDB.getInstance(getContext()).getDAO().getAllService();
-                itemDichVuAdapter.setData(list);
-                recyclerView.setAdapter(itemDichVuAdapter);
-            }
-        });
+
     }
 
 

@@ -2,15 +2,18 @@ package com.qlykhachsan.doannhom.Adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.qlykhachsan.doannhom.DTO.Rooms;
 import com.qlykhachsan.doannhom.DTO.Services;
 import com.qlykhachsan.doannhom.R;
 
@@ -35,14 +38,13 @@ public class ItemDichVuAdapter extends RecyclerView.Adapter<ItemDichVuAdapter.Vi
     }
 
 
-
-
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dich_vu,parent,false);
         return new ViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Services services = listService.get(position);
@@ -54,6 +56,7 @@ public class ItemDichVuAdapter extends RecyclerView.Adapter<ItemDichVuAdapter.Vi
         else{
             holder.linear_title.setBackgroundResource(R.color.itemServicele);
         }
+
     }
 
     @Override

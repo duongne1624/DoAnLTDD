@@ -87,18 +87,18 @@ public class DichVuFragment extends Fragment {
 
         if(people.getStatus() != 2) {
             view.findViewById(R.id.frmDichVu_AddService).setVisibility(View.GONE);
-            btnAddService.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(requireContext(), ThemDichVuActivity.class);
-                    startActivity(i);
-                    list = KhachSanDB.getInstance(getContext()).getDAO().getAllService();
-                    itemDichVuAdapter.setData(list);
-                    recyclerView.setAdapter(itemDichVuAdapter);
-                }
-            });
-        }
 
+        }
+        btnAddService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireContext(), ThemDichVuActivity.class);
+                startActivity(i);
+                list = KhachSanDB.getInstance(getContext()).getDAO().getAllService();
+                itemDichVuAdapter.setData(list);
+                recyclerView.setAdapter(itemDichVuAdapter);
+            }
+        });
 
     }
 }
